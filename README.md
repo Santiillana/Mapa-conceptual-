@@ -1,46 +1,43 @@
 # TIC Explorer
 
-**Mapa conceptual interactivo sobre las Tecnologías de la Información y la Comunicación (TIC).**
+Mapa conceptual interactivo educativo sobre las Tecnologías de la Información y la Comunicación (TIC).
 
-## Abrir la aplicación
+## Abrir y desplegar
 
-La página principal está en `index.html`. Puedes abrirla directamente en un navegador o publicarla con GitHub Pages.
+La aplicación no requiere dependencias, compilación ni backend. Abre `index.html` en un navegador moderno para probarla localmente.
 
-- [Abrir el código de la aplicación](./index.html)
-- [Ver el repositorio](https://github.com/Santiillana/Mapa-conceptual-)
+**Despliegue recomendado en Netlify:**
+1. Entra en Netlify y elige **Add new site → Import an existing project**.
+2. Conecta GitHub y selecciona `Santiillana/Mapa-conceptual-`.
+3. Selecciona la rama `main`.
+4. Usa la configuración de `netlify.toml`: directorio de publicación `.` (raíz) y sin comando de build.
+5. Pulsa **Deploy site**. Netlify te dará la URL del sitio; ábrela y comprueba los pasos de la lista de pruebas.
+
+También puedes desplegar manualmente arrastrando a Netlify la carpeta que contiene `index.html`.
 
 ## Qué incluye
 
-- Tres ramas principales: equipos y herramientas TIC, tipos de software y servicios de Internet.
-- Relaciones entre conceptos con palabras de enlace.
-- Selección de conceptos para leer sus definiciones y ejemplos.
-- Recorrido guiado con pasos anterior/siguiente y barra de progreso.
-- Controles de zoom, vista general y reinicio de la vista.
-- Diseño adaptable a escritorio y móvil, controles accesibles por teclado y respeto por la preferencia de movimiento reducido.
-- Hoja de impresión apaisada con campos para nombre, curso y fecha; el botón «Guardar como PDF» abre el diálogo de impresión del navegador.
+- Tres ramas: equipos y herramientas TIC, tipos de software y servicios de Internet.
+- Conceptos seleccionables con definiciones y ejemplos.
+- Relaciones explícitas con palabras de enlace.
+- Recorrido guiado con anterior/siguiente y progreso.
+- Vista general, zoom y reinicio.
+- Adaptación a pantallas pequeñas, foco visible, navegación por teclado y respeto por la preferencia de movimiento reducido.
+- Impresión apaisada con campos para nombre, curso y fecha; «Guardar como PDF» abre el diálogo de impresión del navegador.
 - Atribución tecnológica visible: HTML, CSS y JavaScript.
 
 ## Criterios conceptuales
 
-El mapa diferencia hardware, software y servicios de Internet. El software se organiza por función (sistema, aplicación y programación), mientras que las licencias se muestran como una dimensión transversal e independiente de esa clasificación. **Software libre no significa necesariamente software gratuito**: la libertad de usar, estudiar, modificar o redistribuir no es lo mismo que el precio.
+El mapa diferencia hardware, software y servicios de Internet. El software se clasifica por función en sistema, aplicación y programación. Las licencias aparecen como una dimensión transversal, independiente de la función. **Software libre no significa necesariamente gratuito**: las libertades de uso, estudio, modificación y redistribución son distintas del precio.
 
-## Personalización para principiantes
+## Personalizar
 
-El contenido está en el arreglo `nodes` del bloque JavaScript dentro de `index.html`. Cada concepto incluye identificador, título, categoría, definición, ejemplos y coordenadas. Las relaciones se mantienen en `links` y el orden del recorrido en `guidedOrder`. Los colores, el diseño adaptable y la impresión se configuran en el bloque `style`.
+Consulta [la guía para principiantes](docs/beginner-guide.md). El modelo de conceptos se encuentra en el arreglo `nodes` del JavaScript dentro de `index.html`; las relaciones están en `links` y el orden del recorrido en `guidedOrder`.
 
-Al añadir un nodo, asígnale un identificador único y asegúrate de que las relaciones y el recorrido guiado usen ese mismo identificador.
+## Verificación y limitaciones
 
-## Publicar con GitHub Pages
+La integridad del contenido se documenta en [la validación conceptual](docs/content-validation.md). Antes de declarar el sitio listo, completa [la lista de pruebas](docs/testing-checklist.md), especialmente la comprobación visual en el navegador, los controles de teclado, el diseño móvil y la impresión real. No se declara verificada la publicación de Netlify hasta que se abra y revise la URL generada.
 
-1. En el repositorio, abre **Settings → Pages**.
-2. En **Build and deployment**, selecciona **Deploy from a branch**.
-3. Elige la rama `main` y la carpeta `/ (root)`; guarda los cambios.
-4. Espera a que GitHub Pages termine el despliegue y usa la URL que muestre esa misma sección.
+## Tecnología y privacidad
 
-## Estado de verificación
-
-Se verificó que el archivo `index.html` y este README están en la rama `main`. La revisión funcional en navegador, la impresión real y la publicación de GitHub Pages todavía deben comprobarse en el entorno final. No se declaran esas pruebas como aprobadas hasta ejecutarlas.
-
-## Tecnología y atribución
-
-Proyecto educativo hecho con HTML, CSS y JavaScript sin dependencias externas ni servicios de terceros.
+Proyecto estático con HTML, CSS y JavaScript, sin dependencias externas, analítica, formularios, cuentas ni envío de datos personales a un servidor. Netlify aloja los archivos estáticos cuando se despliega el sitio.
