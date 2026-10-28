@@ -1,7 +1,6 @@
 # Netlify configuration for a plain static HTML/CSS/JS site.
 [build]
   publish = "."
-  command = ""
 
 [build.environment]
   NODE_VERSION = "20"
