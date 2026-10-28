@@ -1,43 +1,53 @@
 # TIC Explorer
 
-Mapa conceptual interactivo educativo sobre las Tecnologías de la Información y la Comunicación (TIC).
+Mapa conceptual interactivo sobre las Tecnologías de la Información y la Comunicación (TIC). Está construido con HTML, CSS y JavaScript nativos; no requiere dependencias ni compilación.
 
-## Abrir y desplegar
+## Abrir localmente
 
-La aplicación no requiere dependencias, compilación ni backend. Abre `index.html` en un navegador moderno para probarla localmente.
+1. Descarga o clona este repositorio.
+2. Abre el archivo index.html en un navegador moderno.
+3. Selecciona nodos para ver su ficha contextual.
+4. Usa Vista general, Recorrido guiado, Auto, zoom y Centrar mapa.
+5. Usa Exportar PDF para abrir el diálogo de impresión y elegir Guardar como PDF.
 
-**Despliegue recomendado en Netlify:**
-1. Entra en Netlify y elige **Add new site → Import an existing project**.
-2. Conecta GitHub y selecciona `Santiillana/Mapa-conceptual-`.
-3. Selecciona la rama `main`.
-4. Usa la configuración de `netlify.toml`: directorio de publicación `.` (raíz) y sin comando de build.
-5. Pulsa **Deploy site**. Netlify te dará la URL del sitio; ábrela y comprueba los pasos de la lista de pruebas.
+## Desplegar en Netlify
 
-También puedes desplegar manualmente arrastrando a Netlify la carpeta que contiene `index.html`.
+1. Entra en Netlify y elige Add new site → Import an existing project.
+2. Conecta GitHub y selecciona Santiillana/Mapa-conceptual-.
+3. Selecciona la rama main.
+4. Deja vacío el comando de compilación y usa el directorio de publicación . (raíz); la configuración está en netlify.toml.
+5. Pulsa Deploy site y abre la URL publicada para ejecutar las pruebas.
 
-## Qué incluye
+El despliegue no se considera validado hasta que la URL pública se abra y se pruebe en un navegador.
 
-- Tres ramas: equipos y herramientas TIC, tipos de software y servicios de Internet.
-- Conceptos seleccionables con definiciones y ejemplos.
-- Relaciones explícitas con palabras de enlace.
-- Recorrido guiado con anterior/siguiente y progreso.
-- Vista general, zoom y reinicio.
-- Adaptación a pantallas pequeñas, foco visible, navegación por teclado y respeto por la preferencia de movimiento reducido.
-- Impresión apaisada con campos para nombre, curso y fecha; «Guardar como PDF» abre el diálogo de impresión del navegador.
-- Atribución tecnológica visible: HTML, CSS y JavaScript.
+## Funcionalidades
 
-## Criterios conceptuales
+- Tres ramas cromáticas: hardware (cian), software (violeta) y servicios de Internet (naranja).
+- Nodos seleccionables, palabras de enlace, relaciones resaltadas y encuadre del concepto activo.
+- Fichas contextuales con definición, utilidad, ejemplo, criterios, relación y diagrama esquemático.
+- Recorrido educativo con progreso, anterior/siguiente y reproducción automática pausables.
+- Zoom, restablecimiento de vista y navegación por teclado.
+- Diseño adaptable, foco visible y respeto por prefers-reduced-motion.
+- Impresión horizontal con mapa, ficha seleccionada y campos personales; los controles se ocultan al imprimir.
 
-El mapa diferencia hardware, software y servicios de Internet. El software se clasifica por función en sistema, aplicación y programación. Las licencias aparecen como una dimensión transversal, independiente de la función. **Software libre no significa necesariamente gratuito**: las libertades de uso, estudio, modificación y redistribución son distintas del precio.
+## Estructura
 
-## Personalizar
+- index.html: interfaz, estilos, datos, dibujo SVG e interacciones.
+- netlify.toml: configuración de publicación estática y cabeceras.
+- docs/beginner-guide.md: guía de edición y ejecución.
+- docs/content-validation.md: revisión conceptual.
+- docs/testing-checklist.md: criterios de prueba y estado conocido.
 
-Consulta [la guía para principiantes](docs/beginner-guide.md). El modelo de conceptos se encuentra en el arreglo `nodes` del JavaScript dentro de `index.html`; las relaciones están en `links` y el orden del recorrido en `guidedOrder`.
+## Editar conceptos
 
-## Verificación y limitaciones
+En index.html, el arreglo nodes contiene los conceptos y las fichas. El arreglo links define las conexiones y sus palabras de enlace; guidedOrder define el recorrido pedagógico. Mantén identificadores únicos y comprueba que cada relación apunte a conceptos existentes.
 
-La integridad del contenido se documenta en [la validación conceptual](docs/content-validation.md). Antes de declarar el sitio listo, completa [la lista de pruebas](docs/testing-checklist.md), especialmente la comprobación visual en el navegador, los controles de teclado, el diseño móvil y la impresión real. No se declara verificada la publicación de Netlify hasta que se abra y revise la URL generada.
+Los diagramas de las fichas son esquemáticos, no mediciones científicas ni fuentes externas. Revisa el contenido con la especificación maestra y, cuando corresponda, con el docente.
 
-## Tecnología y privacidad
+## Pruebas y limitaciones
 
-Proyecto estático con HTML, CSS y JavaScript, sin dependencias externas, analítica, formularios, cuentas ni envío de datos personales a un servidor. Netlify aloja los archivos estáticos cuando se despliega el sitio.
+Se verificó que los archivos principales y la configuración están presentes en el repositorio. La implementación se actualizó, pero las pruebas funcionales en navegador, móvil y la URL de Netlify deben ejecutarse antes de declarar el proyecto validado. Consulta docs/testing-checklist.md y registra los resultados reales.
+
+## Tecnologías y atribución
+
+HTML, CSS, JavaScript y SVG nativos. No se utilizan bibliotecas de terceros ni se atribuyen las ilustraciones esquemáticas a fuentes externas.
