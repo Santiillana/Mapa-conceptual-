@@ -1,47 +1,46 @@
 # Guía para principiantes
 
-## 1. ¿Qué archivos son importantes?
+## 1. Ejecutar el proyecto
 
-- `index.html`: página principal y código de la aplicación.
-- `README.md`: descripción y pasos de publicación.
-- `netlify.toml`: configuración para que Netlify publique la carpeta raíz.
-- `docs/content-validation.md`: comprobación de la estructura conceptual.
-- `docs/testing-checklist.md`: pruebas que deben hacerse antes de considerar final el sitio.
+1. Descarga el repositorio o abre su página en GitHub.
+2. Abre index.html en Firefox, Chrome, Edge u otro navegador moderno.
+3. No se necesita Node.js, instalar paquetes ni compilar.
+4. Si el navegador bloquea alguna función al abrir un archivo local, sirve la carpeta con cualquier servidor estático sencillo; la aplicación no requiere backend.
 
-## 2. Editar el contenido
+## 2. Explorar el mapa
 
-Abre `index.html` con un editor de texto o de código. Dentro del bloque JavaScript encontrarás tres estructuras:
+- Vista general muestra el mapa completo.
+- Seleccionar un nodo actualiza la ficha y resalta las conexiones directas.
+- Recorrido guiado presenta los conceptos en orden pedagógico.
+- Auto avanza periódicamente; el botón cambia a Pausar y detiene el temporizador al volver a pulsarlo.
+- Zoom + / − modifica el encuadre; Centrar mapa restablece la vista general.
+- Exportar PDF abre el diálogo de impresión del navegador.
 
-- `nodes`: define cada concepto, su título, categoría, explicación, ejemplos y posición.
-- `links`: relaciona dos identificadores y escribe una palabra o frase de enlace.
-- `guidedOrder`: define el orden del recorrido guiado.
+## 3. Editar el contenido
 
-Cada `id` debe ser único. Si agregas un concepto, añade sus relaciones y decide en qué punto debe aparecer en el recorrido.
+En index.html, busca const nodes. Cada objeto define identificador, título, categoría, tipo visual, posición, dimensiones, definición, utilidad, ejemplo, criterios, relaciones, ejemplos y diagrama.
 
-## 3. Editar colores y diseño
+Busca const links para editar conexiones. Cada enlace contiene identificador de origen, identificador de destino, palabra de enlace y color. Los identificadores deben coincidir exactamente con los de nodes.
 
-Los colores principales están al principio del bloque CSS como variables: `--blue`, `--green`, `--violet` y `--ink`. Las reglas al final del CSS controlan el diseño móvil, la preferencia de movimiento reducido y la impresión.
+Busca const guidedOrder para modificar el recorrido. Usa identificadores existentes. Si agregas nodos, actualiza también las relaciones y el orden del recorrido.
 
-## 4. Probar localmente
+Los conceptos se dibujan en un lienzo SVG de 1400 × 760 unidades. x e y indican el centro del nodo; w y h, sus dimensiones. Mantén los nodos dentro del lienzo y comprueba que las etiquetas no se superpongan.
 
-Abre `index.html` en un navegador moderno. Revisa que puedas seleccionar cada concepto, recorrer todos los pasos, cambiar el zoom y abrir el diálogo de impresión. Para una prueba más parecida a un sitio publicado, puedes iniciar un servidor estático desde esta carpeta con:
+## 4. Comprender el código
 
-```bash
-python3 -m http.server 8000
-```
+- HTML organiza página, controles, mapa y ficha.
+- CSS define paleta, distribución, estados visuales, adaptación e impresión.
+- JavaScript administra datos, dibuja nodos y relaciones, cambia la selección y coordina el recorrido.
+- SVG representa conexiones y nodos como elementos vectoriales interactivos.
 
-Después visita `http://localhost:8000`.
+Los diagramas de las fichas son esquemáticos: resumen una secuencia didáctica, no ejecutan una simulación física.
 
-## 5. Publicar con Netlify
+## 5. Publicar en Netlify
 
-La forma más sencilla es conectar el repositorio GitHub en Netlify y desplegar la rama `main`. La configuración incluida publica la raíz del repositorio; no hace falta ejecutar una compilación ni instalar paquetes.
+Importa Santiillana/Mapa-conceptual- desde GitHub. Usa main, deja vacío el comando de compilación y publica el directorio raíz. Después abre la URL pública, recorre la lista de pruebas y registra los problemas observados.
 
-También puedes usar el método manual: en Netlify, elige la opción de desplegar manualmente y arrastra la carpeta del proyecto que contiene `index.html` y `netlify.toml`. Si haces cambios después, vuelve a desplegar la carpeta o sube los cambios a GitHub para activar un nuevo despliegue conectado.
+## 6. Exportar e imprimir
 
-## 6. Guardar como PDF
+Selecciona Exportar PDF y elige guardar como PDF en orientación horizontal. Los controles se ocultan al imprimir. Los campos para nombre, curso y fecha aparecen en la esquina inferior derecha.
 
-Usa el botón «Guardar como PDF». Se abrirá el diálogo de impresión del navegador. Selecciona «Guardar como PDF» y orientación horizontal. La vista de impresión oculta los controles interactivos y añade campos para nombre, curso y fecha. La composición exacta depende del navegador y sus márgenes de impresión.
-
-## 7. Limitaciones conocidas
-
-La aplicación es estática: no guarda progreso entre sesiones, no requiere cuenta y no envía datos a un servidor. El mapa se representa en SVG y los textos del modelo son editables. Antes de entregar, sigue la lista de pruebas y verifica el resultado desplegado en escritorio y móvil.
+El resultado depende del motor de impresión y del tamaño de papel. Revisa el PDF final para comprobar que las etiquetas sean legibles y que el mapa no se recorte.
