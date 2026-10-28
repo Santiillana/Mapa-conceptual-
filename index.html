@@ -88,7 +88,7 @@ body.tour-mode .guide>p:last-child::after{content:"  ← Anterior  ·  Continuar
   </article>
   <section class="guide" id="guide" aria-label="Recorrido educativo">
    <div><div class="guide-top"><p class="eyebrow" style="margin:0">RECORRIDO EDUCATIVO</p><span id="step-label" style="font-size:.75rem;color:#a5b4cf">Paso 1 de 25</span></div><h2 id="guide-title">Empieza por la idea central</h2><p id="guide-desc">Las TIC reúnen recursos para procesar y comunicar información. Desde aquí se abren tres ramas complementarias.</p><div class="progress-track" role="progressbar" aria-label="Progreso del recorrido" aria-valuemin="0" aria-valuemax="25" aria-valuenow="1" id="progressbar"><div id="progress"></div></div><div class="progress-meta"><span id="progress-text">1 de 25 conceptos</span><span id="progress-percent">7%</span></div></div>
-   <div class="guide-actions"><button id="prev" class="btn" disabled>← Anterior</button><button id="next" class="btn primary">Continuar →</button></div>
+   <div class="guide-actions"><button id="prev" class="btn" disabled>← Anterior</button><button id="auto-toggle" class="btn" type="button" aria-pressed="false">▶ Auto</button><button id="next" class="btn primary">Continuar →</button></div>
    <p style="font-size:.72rem;margin:0">Consejo: selecciona cualquier nodo para explorar libremente. Activa Auto para recorrer el mapa sin perder el control.</p>
   </section>
  </section>
@@ -181,8 +181,9 @@ function exitTour(){
  fitOverview();document.getElementById("selection-status").textContent="Vista general · selecciona un concepto para explorar";
 }
 function setGuided(on){if(on)enterTour();else exitTour()}
-function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null}}
-function toggleAuto(){/* El recorrido inmersivo se controla con las flechas, no con temporizadores. */}
+function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null}const b=document.getElementById("auto-toggle");if(b){b.textContent="▶ Auto";b.setAttribute("aria-pressed","false");b.classList.remove("active")}}
+function toggleAuto(){if(!tourActive){enterTour()}if(autoTimer){stopAuto();document.getElementById("selection-status").textContent="Recorrido pausado · puedes avanzar manualmente";return}const b=document.getElementById("auto-toggle");if(b){b.textContent="⏸ Pausa";b.setAttribute("aria-pressed","true");b.classList.add("active")}document.getElementById("selection-status").textContent="Recorrido automático activo · pulsa Pausa para detenerlo";autoTimer=setInterval(()=>{if(!tourActive){stopAuto();return}if(stepIndex>=guidedOrder.length-1){stopAuto();updateStep(0,true)}else{updateStep(stepIndex+1,true)}},5200)}
+document.getElementById("auto-toggle").addEventListener("click",toggleAuto);
 document.getElementById("exit-tour").addEventListener("click",exitTour);
 document.addEventListener("fullscreenchange",()=>{if(!document.fullscreenElement&&tourActive){tourActive=false;document.body.classList.remove("tour-mode");stopAuto();document.getElementById("guided-toggle").setAttribute("aria-pressed","false");document.getElementById("overview").setAttribute("aria-pressed","true");document.getElementById("overview").classList.add("active");fitOverview()}});
 document.addEventListener("keydown",e=>{
