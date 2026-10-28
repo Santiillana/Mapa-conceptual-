@@ -1,53 +1,45 @@
 # TIC Explorer
 
-Mapa conceptual interactivo sobre las Tecnologías de la Información y la Comunicación (TIC). Está construido con HTML, CSS y JavaScript nativos; no requiere dependencias ni compilación.
+Mapa conceptual interactivo sobre las Tecnologías de la Información y la Comunicación (TIC), construido con HTML, CSS y JavaScript nativos.
 
 ## Abrir localmente
 
 1. Descarga o clona este repositorio.
-2. Abre el archivo index.html en un navegador moderno.
-3. Selecciona nodos para ver su ficha contextual.
-4. Usa Vista general, Recorrido guiado, Auto, zoom y Centrar mapa.
-5. Usa Exportar PDF para abrir el diálogo de impresión y elegir Guardar como PDF.
+2. Abre index.html en un navegador moderno.
+3. Selecciona un nodo para consultar su ficha y explorar sus conexiones.
+4. Pulsa **Recorrido guiado** para entrar en el modo inmersivo a pantalla completa.
+5. En el recorrido, usa **← / →** (también ↑ / ↓) para avanzar y retroceder. Pulsa **Esc** o **Salir del recorrido** para volver al mapa.
+6. Usa **Vista general** para restablecer el mapa y **Exportar PDF** para imprimir o guardar como PDF.
+
+## Cómo funciona el recorrido
+
+El mapa conceptual permanece visible durante el recorrido. Cada paso selecciona un concepto, destaca sus conexiones, encuadra el nodo, actualiza la ficha y explica la palabra de enlace que lo conecta con el mapa. Las ilustraciones son diagramas educativos animados basados en el concepto; no son simulaciones físicas.
+
+La navegación del recorrido es deliberadamente sencilla: flechas del teclado para cambiar de paso y Esc para salir. No hay puntos, cuestionarios ni gamificación.
 
 ## Desplegar en Netlify
 
-1. Entra en Netlify y elige Add new site → Import an existing project.
+1. En Netlify, elige Add new site → Import an existing project.
 2. Conecta GitHub y selecciona Santiillana/Mapa-conceptual-.
-3. Selecciona la rama main.
-4. Deja vacío el comando de compilación y usa el directorio de publicación . (raíz); la configuración está en netlify.toml.
-5. Pulsa Deploy site y abre la URL publicada para ejecutar las pruebas.
-
-El despliegue no se considera validado hasta que la URL pública se abra y se pruebe en un navegador.
-
-## Funcionalidades
-
-- Tres ramas cromáticas: hardware (cian), software (violeta) y servicios de Internet (naranja).
-- Nodos seleccionables, palabras de enlace, relaciones resaltadas y encuadre del concepto activo.
-- Fichas contextuales con definición, utilidad, ejemplo, criterios, relación y diagrama esquemático.
-- Recorrido educativo con progreso, anterior/siguiente y reproducción automática pausables.
-- Zoom, restablecimiento de vista y navegación por teclado.
-- Diseño adaptable, foco visible y respeto por prefers-reduced-motion.
-- Impresión horizontal con mapa, ficha seleccionada y campos personales; los controles se ocultan al imprimir.
+3. Usa la rama main, sin comando de compilación, y directorio de publicación raíz (.).
+4. Publica y prueba la URL pública con la lista de verificación.
 
 ## Estructura
 
-- index.html: interfaz, estilos, datos, dibujo SVG e interacciones.
-- netlify.toml: configuración de publicación estática y cabeceras.
-- docs/beginner-guide.md: guía de edición y ejecución.
-- docs/content-validation.md: revisión conceptual.
-- docs/testing-checklist.md: criterios de prueba y estado conocido.
+- index.html: datos conceptuales, SVG, estilos e interacciones.
+- netlify.toml: configuración de publicación estática.
+- docs/beginner-guide.md: guía de edición y funcionamiento.
+- docs/content-validation.md: validación conceptual.
+- docs/testing-checklist.md: pruebas y estado de validación.
 
-## Editar conceptos
+## Contenido y mantenimiento
 
-En index.html, el arreglo nodes contiene los conceptos y las fichas. El arreglo links define las conexiones y sus palabras de enlace; guidedOrder define el recorrido pedagógico. Mantén identificadores únicos y comprueba que cada relación apunte a conceptos existentes.
+Los arreglos nodes, links y guidedOrder dentro de index.html definen conceptos, relaciones y orden pedagógico. Conserva los identificadores y revisa cada palabra de enlace al modificar el mapa. La clasificación por función del software es independiente de sus licencias; software libre no significa necesariamente gratuito.
 
-Los diagramas de las fichas son esquemáticos, no mediciones científicas ni fuentes externas. Revisa el contenido con la especificación maestra y, cuando corresponda, con el docente.
+## Estado de las pruebas
 
-## Pruebas y limitaciones
-
-Se verificó que los archivos principales y la configuración están presentes en el repositorio. La implementación se actualizó, pero las pruebas funcionales en navegador, móvil y la URL de Netlify deben ejecutarse antes de declarar el proyecto validado. Consulta docs/testing-checklist.md y registra los resultados reales.
+Se comprobaron estáticamente los identificadores de los conceptos y los extremos de las relaciones en el repositorio. Las pruebas funcionales en navegador, dispositivos móviles, impresión y despliegue público deben registrarse en docs/testing-checklist.md antes de considerar el proyecto validado.
 
 ## Tecnologías y atribución
 
-HTML, CSS, JavaScript y SVG nativos. No se utilizan bibliotecas de terceros ni se atribuyen las ilustraciones esquemáticas a fuentes externas.
+HTML, CSS, JavaScript y SVG nativos. Las ilustraciones son esquemas educativos propios del proyecto y no se presentan como fuentes académicas.
