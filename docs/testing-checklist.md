@@ -1,49 +1,37 @@
 # Lista de verificación de pruebas
 
-**Estado:** implementación actualizada en el repositorio. Las pruebas siguientes deben ejecutarse en un navegador real antes de declarar el producto validado. No se afirma que el despliegue público haya sido probado.
+**Estado:** se actualizó la navegación del recorrido para modo inmersivo y teclado. La revisión estática no sustituye las pruebas funcionales en navegador.
 
-## Revisión estática realizada
+## Comprobaciones estáticas
 
-- [x] index.html existe y contiene HTML, CSS y JavaScript sin dependencias externas.
-- [x] netlify.toml configura publicación estática desde la raíz.
-- [x] La aplicación contiene tres ramas cromáticas y datos para 15 conceptos.
-- [x] La ficha incluye definición, utilidad, ejemplo, criterios, relación y diagrama esquemático.
-- [x] La documentación explica edición, ejecución y despliegue.
+- [x] index.html y configuración de Netlify presentes.
+- [x] El código incluye tres ramas, 15 conceptos y 14 relaciones.
+- [x] Los extremos de las relaciones apuntan a identificadores existentes.
+- [x] El orden guiado usa conceptos existentes.
+- [x] El recorrido tiene modo de pantalla completa, salida por Esc y navegación por flechas en el código.
+- [x] La documentación describe el nuevo modelo de navegación.
 
 ## Pruebas funcionales pendientes
 
-- [ ] Abrir index.html y confirmar que el mapa se dibuja sin errores de consola.
-- [ ] Seleccionar cada nodo y verificar que aparece la ficha correcta.
-- [ ] Comprobar las palabras de enlace y los extremos de todas las conexiones.
-- [ ] Recorrer los pasos con Anterior y Continuar, incluyendo primero y último.
-- [ ] Activar Auto, confirmar avance periódico y detenerlo con Pausar.
-- [ ] Comprobar que seleccionar un nodo durante el recorrido sincroniza el paso.
-- [ ] Probar zoom, centrado, selección y cambio de tamaño sin perder el mapa.
-- [ ] Probar navegación con Tab, Enter, barra espaciadora y flechas.
-- [ ] Comprobar contraste, foco y prefers-reduced-motion.
-- [ ] Revisar vista móvil y tableta, controles táctiles y legibilidad.
-- [ ] Exportar a PDF horizontal y comprobar mapa, ficha y campos personales.
-- [ ] Confirmar que no aparecen controles en impresión ni nodos recortados.
-- [ ] Publicar en Netlify y probar la URL pública.
-
-## Validación conceptual
-
-- [ ] Las tres ramas principales están presentes y diferenciadas.
-- [ ] Las palabras de enlace describen relaciones lógicas.
-- [ ] La clasificación por función no se confunde con las licencias.
-- [ ] Se explica que software libre no significa necesariamente gratuito.
-- [ ] Un docente revisa el contenido con la especificación maestra.
+- [ ] Abrir el sitio en navegador y comprobar que no hay errores de consola.
+- [ ] Pulsar Recorrido guiado y confirmar pantalla completa o modo inmersivo de respaldo.
+- [ ] Avanzar y retroceder con flechas y confirmar sincronización entre nodo, ficha, relación y progreso.
+- [ ] Confirmar que Esc y el botón Salir devuelven al mapa general.
+- [ ] Comprobar el primer y último paso del recorrido.
+- [ ] Seleccionar nodos fuera del recorrido y verificar que las fichas corresponden.
+- [ ] Comprobar animaciones, conexiones resaltadas y movimiento reducido.
+- [ ] Probar escritorio, tableta, móvil y controles táctiles.
+- [ ] Probar Tab, Enter, barra espaciadora y foco visible en vista general.
+- [ ] Exportar PDF y revisar recortes, legibilidad y campos personales.
+- [ ] Publicar en Netlify y verificar la URL pública.
 
 ## Registro de resultados
 
-Completa después de ejecutar las pruebas:
-
 - Fecha y navegador:
-- Dispositivo / tamaño de pantalla:
+- Dispositivo / tamaño:
 - URL probada:
-- Pruebas completadas:
-- Fallos observados:
-- Cambios aplicados:
-- Pruebas pendientes:
+- Pruebas ejecutadas y resultados:
+- Errores observados:
+- Cambios pendientes:
 
-No marques una casilla como aprobada sin ejecutar la prueba.
+No marques pruebas pendientes como aprobadas hasta ejecutarlas.
